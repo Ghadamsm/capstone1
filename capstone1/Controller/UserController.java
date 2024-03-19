@@ -100,10 +100,11 @@ public class UserController {
 
     @GetMapping("/gift/{IdU}")
     public ResponseEntity giftCard(@PathVariable int IdU){
-        if (userService.giftCard(IdU) == "check your balance"){
+        String x = userService.giftCard(IdU);
+        if (x.equalsIgnoreCase("Invalid")) {
+            return ResponseEntity.status(400).body("Invalid");
+        } else if (x.equalsIgnoreCase("check your balance")) {
             return ResponseEntity.status(400).body("check your balance");
-        } else if (userService.giftCard(IdU) == "Invalid ID") {
-            return ResponseEntity.status(400).body("Invalid ID");
         }
 
         return ResponseEntity.status(200).body("your gift card : gift ");

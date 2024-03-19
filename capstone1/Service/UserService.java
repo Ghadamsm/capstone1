@@ -105,7 +105,7 @@ public class UserService {
                 return "check your balance";
             }
         }
-        return "Invalid ID";
+        return "Invalid Id";
     }
 
 
