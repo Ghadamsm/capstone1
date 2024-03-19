@@ -83,9 +83,9 @@ public class ProductController {
     }
 
 
-    @GetMapping("/gift/{giftCard}")
-    public ResponseEntity giftCard(@PathVariable String giftCard){
-        if (productService.giftCard(giftCard) == false){
+    @GetMapping("/gift/{giftCard}/{Id}")
+    public ResponseEntity giftCard(@PathVariable String giftCard , @PathVariable int Id){
+        if (productService.giftCard(giftCard , Id) == false){
             return ResponseEntity.status(400).body("Invalid code");
         }
 

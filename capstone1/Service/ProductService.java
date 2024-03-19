@@ -76,11 +76,14 @@ public class ProductService {
 
 
 
-    public Boolean giftCard(String giftCard){
-        if (giftCard.equalsIgnoreCase("gift")){
-            for (Product product : products){
-                product.setPrice(product.getPrice() - 100);
-                return true;
+    public Boolean giftCard(String giftCard , int Id){
+
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getID() == Id){
+                if (giftCard.equalsIgnoreCase("gift")){
+                        products.get(i).setPrice(products.get(i).getPrice() - 100);
+                        return true;
+                }
             }
         }
         return false ;
